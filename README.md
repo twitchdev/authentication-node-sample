@@ -1,5 +1,9 @@
 # Twitch Authentication Node Sample
-Here you will find a simple Express web app illustrating how to authenticate Twitch API calls using the OAuth authorization code flow.  This sample uses [Express](http://expressjs.com/), [Passport](http://passportjs.org/), and [Handlebars](http://handlebarsjs.com/).
+Here you will find a simple Express web app illustrating how to authenticate a User (also known as logging a user into your application/website) against the Twitch API using the [OAuth authorization code flow](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth#oauth-authorization-code-flow).
+
+This sample uses [Express](http://expressjs.com/), [Passport](http://passportjs.org/), and [Handlebars](http://handlebarsjs.com/).
+
+This authentication method is good for applications where you will be performing actions on behalf of the Authentication user. If you are building a Website to show Streamer live status for example, then this example is not the best solution, as you shoud be using a [Server to Server/Client Credentials token](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth#oauth-client-credentials-flow) and not logging a user in at all
 
 ## Installation
 After you have cloned this repository, use [npm](https://www.npmjs.com/) to install dependencies.
