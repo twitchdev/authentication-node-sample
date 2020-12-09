@@ -92,14 +92,16 @@ var template = handlebars.compile(`
 <table>
     <tr><th>Access Token</th><td>{{accessToken}}</td></tr>
     <tr><th>Refresh Token</th><td>{{refreshToken}}</td></tr>
-    <tr><th>Display Name</th><td>{{display_name}}</td></tr>
-    <tr><th>Bio</th><td>{{bio}}</td></tr>
-    <tr><th>Image</th><td>{{logo}}</td></tr>
-</table></html>`);
+    <tr><th>Display Name</th><td>{{data.[0].display_name}}</td></tr>
+    <tr><th>Bio</th><td>{{data.[0].description}}</td></tr>
+    <tr><th>Image</th><td>{{data.[0].profile_image_url}}</td></tr>
+    </table>
+</html>`);
 
 // If user has an authenticated session, display it, otherwise display link to authenticate
 app.get('/', function (req, res) {
   if(req.session && req.session.passport && req.session.passport.user) {
+    console.log(req.session.passport.user);
     res.send(template(req.session.passport.user));
   } else {
     res.send('<html><head><title>Twitch Auth Sample</title></head><a href="/auth/twitch"><img src="http://ttv-api.s3.amazonaws.com/assets/connect_dark.png"></a></html>');
